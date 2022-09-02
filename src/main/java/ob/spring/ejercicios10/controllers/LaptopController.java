@@ -2,6 +2,7 @@ package ob.spring.ejercicios10.controllers;
 
 import ob.spring.ejercicios10.models.Laptop;
 import ob.spring.ejercicios10.models.LaptopRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,8 @@ import java.util.List;
 @RestController
 public class LaptopController {
 	private final LaptopRepository repository;
+	@Value("${app.greetings}")
+	private String greetings;
 	
 	public LaptopController(LaptopRepository repository) {
 		this.repository = repository;
@@ -17,7 +20,7 @@ public class LaptopController {
 
 	@GetMapping("/")
 	public ResponseEntity<String> home(){
-		return ResponseEntity.ok("Laptop App");
+		return ResponseEntity.ok(this.greetings);
 	}
 	
 	@GetMapping("/api/laptops")
