@@ -14,6 +14,11 @@ public class LaptopController {
 	public LaptopController(LaptopRepository repository) {
 		this.repository = repository;
 	}
+
+	@GetMapping("/")
+	public ResponseEntity<String> home(){
+		return ResponseEntity.ok("Laptop App");
+	}
 	
 	@GetMapping("/api/laptops")
 	public ResponseEntity<List<Laptop>> findAll(){
