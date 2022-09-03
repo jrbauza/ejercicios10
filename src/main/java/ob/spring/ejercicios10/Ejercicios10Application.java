@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Ejercicios10Application {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Throwable{
 		SpringApplication.run(Ejercicios10Application.class, args);
 	}
 
