@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 
@@ -23,14 +22,12 @@ class LaptopControllerTest {
     @Autowired
     private RestTemplateBuilder restTemplateBuilder;
     private TestRestTemplate testRestTemplate;
-    @LocalServerPort
-    private int port;
     @Autowired
     private LaptopRepository repository;
 
     @BeforeEach
     void setUp() {
-        restTemplateBuilder = restTemplateBuilder.rootUri("http://localhost:" + port);
+        restTemplateBuilder = restTemplateBuilder.rootUri("http://localhost:8080");
         testRestTemplate = new TestRestTemplate(restTemplateBuilder);
     }
 
